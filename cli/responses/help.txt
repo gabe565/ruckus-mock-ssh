@@ -1,0 +1,11 @@
+help                 Shows available commands.
+history              Shows a list of previously run commands.
+abort                Exits the config-admin context without saving changes.
+end                  Saves changes, and then exits the config-admin context.
+exit                 Saves changes, and then exits the config-admin context.
+quit                 Exits the config-admin context without saving changes.
+name <WORD>          Sets the admin name.
+no                   Contains commands that can be executed from within the context.
+auth-server <WORD>   Enables administrator authentication with a remote server and sets the
+                     authentication server to the specified address.
+show                 Displays administrative settings.

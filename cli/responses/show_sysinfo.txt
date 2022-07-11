@@ -1,0 +1,30 @@
+System Overview:
+  Name= ZoneDirector
+  IP Address= 192.168.0.6
+  IPv6 Address= fc00::2
+  MAC Address= f8:e7:1e:3a:4c:20
+  Uptime= 5d 19h 12m
+  Model= ZD1200
+  Licensed APs= 5
+  Serial Number= 951608000220
+  Version= 10.4.0.0 build 7
+
+Devices Overview:
+  Number of APs= 4
+  Number of Client Devices= 6
+  Number of Rogue Devices= 28
+
+Usage Summary:
+  Usage of 1 hr:
+  Max. Concurrent Users= 6
+  Bytes Transmitted= 148.58M
+  Number of Rogue Devices= 28
+  Usage of 24 hr:
+  Max. Concurrent Users= 6
+  Bytes Transmitted= 137.91G
+  Number of Rogue Devices= 54
+
+Memory Utilization:
+ Used Bytes= 91528(kB)
+ Used Percentage= 5%
+ Free Bytes= 1857716(kB)

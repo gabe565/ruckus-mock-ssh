@@ -1,0 +1,62 @@
+AP:
+  ID:
+    1:
+      MAC Address= d4:c1:9e:35:c9:40
+      Model= r610
+      Approved= Yes
+      Device Name= Ruckus-Unleashed
+      Device Role= Master
+      Description=
+      Location=
+      GPS=
+      CERT = Normal
+      Bonjour-policy=
+      Bonjour-fencing=
+      Group Name= System Default
+      Channel Range:
+        A/N= 36,40,44,48,149,153,157,161 (Disallowed= )
+        B/G/N= 1,2,3,4,5,6,7,8,9,10,11 (Disallowed= )
+      Radio a/n:
+        Channelization= Auto
+        Channel= Auto
+        WLAN Services enabled= Yes
+        Tx. Power= Auto
+        WLAN Group Name= Default
+        Call Admission Control= OFF
+        Protection Mode= Auto
+      Radio b/g/n:
+        Channelization= Auto
+        Channel= Auto
+        WLAN Services enabled= Yes
+        Tx. Power= Auto
+        WLAN Group Name= Default
+        Call Admission Control= OFF
+        Protection Mode= 2
+      Override global ap-model port configuration= No
+      Network Setting:
+        Protocol mode= IPv4-Only
+        Device IP Settings= DHCP
+        IP Address= 192.168.0.13
+        Netmask= 255.255.255.0
+        Gateway= 192.168.0.1
+        Primary DNS Server= 66.90.130.101
+        Secondary DNS Server= 216.82.201.11
+      Mesh:
+        Status= Disabled
+      LLDP:
+        Status = Use Parent Setting
+      LAN Port:
+        0:
+          Interface= eth0
+          Dot1x= None
+          LogicalLink= Up
+          PhysicalLink= Up 1000Mbps full
+          Label= 10/100/1000 PoE Port1
+        1:
+          Interface= eth1
+          Dot1x= None
+          LogicalLink= Down
+          PhysicalLink= Down
+          Label= 10/100/1000 Port2
+          PoE Mode= Auto
+          802.3af PoE Tx. chain= 2

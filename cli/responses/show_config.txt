@@ -1,0 +1,56 @@
+Protocol Mode= IPv4-Only
+Device IP Address:
+  Mode= Manual
+  IP Address= 192.168.40.100
+  Netmask= 255.255.255.0
+  Gateway Address= 192.168.40.1
+  Primary DNS= 192.168.40.1
+  Secondary DNS=
+
+Management VLAN:
+  VLAN ID= 1
+
+Country Code:
+  Code= United States
+
+Identity:
+  Name= Ruckus
+
+NTP:
+  Status= Enabled
+  Address= ntp.ruckuswireless.com
+
+Log:
+  Status= Disabled
+  Address= 192.168.3.10
+  Facility= local0
+  Priority= emerg
+  AP Facility= local0
+  AP Priority= emerg
+
+Tunnel MTU:
+  Tunnel MTU= 1500
+
+Bonjour Service:
+  Status= Disabled
+
+Telnet Server:
+  Status= Disabled
+
+FTP Server:
+  Status= Enabled
+  Anonynous Status= Enabled
+
+FlexMaster:
+  Status= Disabled
+  Address=
+  Interval= 15
+
+AAA:
+  ID:
+    1:
+      Name= Local Database
+      Type= Local
+    2:
+      Name= Guest Acccounts
+      Type= Guest

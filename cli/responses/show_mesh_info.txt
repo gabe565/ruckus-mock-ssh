@@ -1,0 +1,16 @@
+Mesh Settings:
+  Mesh Status= Enabled
+  Mesh Name(ESSID)= Mesh-951608000220
+  Mesh Passphrase= bzj9Y0kEpkxOPzPXyKqLrJHZSAAnbtfaTm7Ebh6qps24PFPcc5MtCiijGGwFZBG
+  Mesh Radio Option= 5G
+  Mesh Uplink Selection Algorithm = default(static)
+  Mesh Hop Detection:
+    Status= Disabled
+  Mesh Downlinks Detection:
+    Status= Disabled
+  Tx. Rate of Management Frame= 2Mbps
+  Beacon Interval= 200ms
+  Zero-Touch-Mesh status= Enabled
+Zero Touch Mesh Pre-Approved Serial Number List:
+serial number = 921802014959, approved = 0, time = 0, id = 1
+serial number = 441e981cf0d0, approved = 0, time = 0, id = 2

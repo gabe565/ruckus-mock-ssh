@@ -1,0 +1,79 @@
+WLAN Service:
+ ID:
+  1:
+   NAME = Ruckus1
+   Tx. Rate of Management Frame(2.4GHz) = 2.0Mbps
+   Tx. Rate of Management Frame(5GHz) = 6.0Mbps
+   Beacon Interval = 100ms
+   SSID = Ruckus1
+   Description = Ruckus1
+   Type = Standard Usage
+   Authentication = open
+   Encryption = wpa2
+   Algorithm = aes
+   Passphrase = secretpassphrasegoeshere
+   FT Roaming = Disabled
+   802.11k Neighbor report = Disabled
+   Web Authentication = Disabled
+   Authentication Server = Disabled
+   Accounting Server = Disabled
+   Called-Station-Id type = wlan-bssid
+   Tunnel Mode = Disabled
+   DHCP relay = Disabled
+   Max. Clients = 100
+   Isolation per AP = Disabled
+   Isolation across AP = Disabled
+   Zero-IT Activation = Enabled
+   Load Balancing = Disabled
+   Band Balancing = Disabled
+   Dynamic PSK = Enabled
+   Dynamic PSK Passphrase Length =
+   Dynamic PSK Expire Time = unlimited
+   Dynamic PSK Validity Period =
+   Limit Dynamic PSK = Disabled
+   Auto-Proxy configuration:
+     Status = Disabled
+   Inactivity Timeout:
+     Status = Disabled
+   VLAN-ID = 1
+   Dynamic VLAN = Disabled
+   Closed System = Disabled
+   Https Redirection = Disabled
+   OFDM-Only State = Disabled
+   Multicast Filter State = Disabled
+   802.11d State = Disabled
+   Force DHCP State = Disabled
+   Force DHCP Timeout = 0
+   DHCP Option82:
+     Status = Disabled
+     Option82 sub-Option1 = Disabled
+     Option82 sub-Option2 = Disabled
+     Option82 sub-Option150 = Disabled
+     Option82 sub-Option151 = Disabled
+   Ignore unauthorized client statistic = Disabled
+   STA Info Extraction State = Enabled
+   BSS Minrate = Disabled
+   DTIM period = 1
+   Directed MC/BC Threshold = 5
+   Call Admission Control State = Disabled
+   PMK Cache Timeout= 720 minutes
+   PMK Cache for Reconnect= Enabled
+   NAS-ID Type= wlan-bssid
+   Roaming Acct-Interim-Update= Disabled
+   PAP Message Authenticator = Enabled
+   Send EAP-Failure = Disabled
+   L2/MAC = No ACLS
+   L3/L4/IP Address = No ACLS
+   L3/L4/IPv6 Address = No ACLS
+   Precedence = No ACLS
+   Proxy ARP = Disabled
+   Device Policy = No ACLS
+   Vlan Pool = No Pools
+   Role based Access Control Policy = Disabled
+   SmartRoam = Disabled Roam-factor = 1
+   White List = No ACLS
+   Application Recognition & Control = Disabled
+   Apply ARC Policy = NO POLICY
+   Wlan Bind = all
+   Client Flow Data Logging = Disabled
+   Client Connection Data = Disabled

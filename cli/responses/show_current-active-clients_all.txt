@@ -1,0 +1,57 @@
+Current Active Clients:
+  Clients:
+    Host Name= Test
+    Mac Address= 00:22:fb:5c:e2:32
+    User/IP= 172.18.30.2
+    User/IPv6=
+    Access Point= 04:4f:aa:13:30:f0
+    BSSID= 04:4f:aa:13:30:fa
+    Connect Since=2011/03/01 02:48:22
+    Auth Method= OPEN
+    WLAN= 11jojoe
+    VLAN= None
+    Channel= 6
+    Radio= 802.
+    Signal= 0
+    Status= Authorized
+  Clients:
+    Host Name= Test2
+    Mac Address= 00:22:fb:5c:e2:33
+    User/IP= 172.18.30.3
+    User/IPv6=
+    Access Point= 04:4f:aa:13:30:f0
+    BSSID= 04:4f:aa:13:30:fa
+    Connect Since=2011/03/01 02:48:22
+    Auth Method= OPEN
+    WLAN= 11jojoe
+    VLAN= None
+    Channel= 6
+    Radio= 802.
+    Signal= 0
+    Status= Authorized
+
+Mac Address= 00:22:fb:5c:e2:32
+User/IP= 172.18.30.2
+User/IPv6=
+Access Point= 04:4f:aa:13:30:f0
+BSSID= 04:4f:aa:13:30:fa
+Connect Since=2011/03/01 02:48:22
+Auth Method= OPEN
+WLAN= 11jojoe
+VLAN= None
+Channel= 6
+Radio= 802.
+Signal= 0
+Status= Authorized
+
+Last 300 Events/Activities:
+Activity:
+Date/Time= 2011/03/01 02:49:05
+Severity= Low
+User=
+Activities= User[00:22:fb:5c:e2:32] joins WLAN[11jojoe] from AP[04:4f:aa:13:30:f0]
+Activity:
+Date/Time= 2011/03/01 02:48:22
+Severity= Low
+User=
+Activities= User[00:22:fb:5c:e2:32] joins WLAN[11jojoe] from AP[04:4f:aa:13:30:f0]
