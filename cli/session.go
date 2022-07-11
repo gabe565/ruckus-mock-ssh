@@ -11,9 +11,10 @@ import (
 )
 
 type Session struct {
-	cli      Cli
-	session  ssh.Session
-	terminal *terminal.Terminal
+	cli                Cli
+	session            ssh.Session
+	terminal           *terminal.Terminal
+	showingCompletions bool
 }
 
 func (s Session) Handle() {
@@ -108,15 +109,21 @@ func (s Session) Handle() {
 	}
 }
 
-func (s Session) AutoComplete(line string, pos int, key rune) (newLine string, newPos int, ok bool) {
-	if _, err := s.terminal.Write([]byte(cursor.ClearScreenBelow())); err != nil {
-		log.Println(err)
-		return line, pos, false
+func (s *Session) AutoComplete(line string, pos int, key rune) (newLine string, newPos int, ok bool) {
+	if s.showingCompletions {
+		if _, err := s.terminal.Write([]byte(cursor.ClearScreenBelow())); err != nil {
+			log.Println(err)
+			return line, pos, false
+		}
 	}
+	s.showingCompletions = false
 
 	switch key {
 	case 0x09: // Ctrl-I (Tab)
 		result, ok := s.FindCommand(line)
+		if ok {
+			s.showingCompletions = true
+		}
 		return result, len(result), ok
 	}
 
