@@ -120,7 +120,7 @@ func (s *Session) AutoComplete(line string, pos int, key rune) (newLine string, 
 
 	switch key {
 	case 0x09: // Ctrl-I (Tab)
-		result, ok := s.FindCommand(line)
+		result, ok := s.CompleteCommand(line)
 		if ok {
 			s.showingCompletions = true
 		}
@@ -130,7 +130,7 @@ func (s *Session) AutoComplete(line string, pos int, key rune) (newLine string, 
 	return line, pos, false
 }
 
-func (s Session) FindCommand(line string) (completion string, ok bool) {
+func (s Session) CompleteCommand(line string) (completion string, ok bool) {
 	var matches []string
 	err := fs.WalkDir(responses, "responses", func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
