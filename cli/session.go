@@ -38,6 +38,7 @@ func (s Session) Handle() {
 	log.Println("password: " + password)
 
 	if !s.cli.AuthPair.Validate(username, password) {
+		log.Println("auth failure")
 		if _, err := term.Write([]byte("Login incorrect\n")); err != nil {
 			log.Println(err)
 			return
