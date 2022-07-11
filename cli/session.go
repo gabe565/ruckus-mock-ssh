@@ -1,6 +1,7 @@
 package cli
 
 import (
+	"github.com/gabe565/ruckus-mock-ssh/cli/cursor"
 	"github.com/gliderlabs/ssh"
 	"golang.org/x/crypto/ssh/terminal"
 	"io/fs"
@@ -53,6 +54,8 @@ func (s Session) Handle() {
 		return
 	}
 
+	term.AutoCompleteCallback = s.AutoComplete
+
 	var superuser bool
 	for {
 		// Change prompt when superuser
@@ -102,4 +105,60 @@ func (s Session) Handle() {
 			}
 		}
 	}
+}
+
+func (s Session) AutoComplete(line string, pos int, key rune) (newLine string, newPos int, ok bool) {
+	if _, err := s.terminal.Write([]byte(cursor.ClearScreenBelow())); err != nil {
+		log.Println(err)
+		return line, pos, false
+	}
+
+	switch key {
+	case 0x09: // Ctrl-I (Tab)
+		result, ok := s.FindCommand(line)
+		return result, len(result), ok
+	}
+
+	return line, pos, false
+}
+
+func (s Session) FindCommand(line string) (completion string, ok bool) {
+	var matches []string
+	err := fs.WalkDir(responses, "responses", func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if d.Type() == fs.ModeDir {
+			return nil
+		}
+
+		base := filepath.Base(path)
+		base = strings.ReplaceAll(base, "_", " ")
+		base = strings.TrimSuffix(base, ".txt")
+		if strings.HasPrefix(base, line) {
+			matches = append(matches, base)
+		}
+		return nil
+	})
+	if err != nil {
+		return "", false
+	}
+
+	if len(matches) == 1 {
+		return matches[0], true
+	}
+
+	if len(matches) > 0 {
+		matchStr := "\n" + strings.Join(matches, "\n")
+		// Move cursor back up to prompt
+		matchStr += cursor.MoveUpBeginning(len(matches))
+		if _, err := s.terminal.Write([]byte(matchStr)); err != nil {
+			log.Println(err)
+			return line, false
+		}
+		return longestCommonPrefix(matches), true
+	}
+
+	return line, false
 }

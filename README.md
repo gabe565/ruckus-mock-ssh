@@ -33,6 +33,11 @@ After running the server, connect to it with the following SSH command:
 ssh localhost -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
 ```
 
+### Shell Completions
+
+Simple shell completions are set up for command discovery. Once you connect
+via SSH, press the Tab key to see available commands.
+
 ## Development
 
 ### Adding new command responses
