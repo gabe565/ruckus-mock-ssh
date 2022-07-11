@@ -19,5 +19,10 @@ func main() {
 	handler := cli.New(username, password)
 
 	log.Println("ssh server running on " + address)
+	log.Println("connect with:")
+	log.Println("  ssh localhost -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null")
+	log.Println("username: " + username)
+	log.Println("password: " + password)
+
 	log.Fatal(ssh.ListenAndServe(address, handler.NewSession))
 }
