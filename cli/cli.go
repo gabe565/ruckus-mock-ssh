@@ -22,7 +22,10 @@ func (cli Cli) NewSession(sshSession ssh.Session) {
 	session := Session{
 		cli:     cli,
 		session: sshSession,
-		terminal: terminal.NewTerminal(sshSession, ""),
+		terminal: terminal.NewTerminal(
+			LineToCarriage{sshSession},
+			"",
+		),
 	}
 	session.Handle()
 }
