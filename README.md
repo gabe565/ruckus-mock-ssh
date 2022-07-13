@@ -1,6 +1,6 @@
 # Ruckus Mock SSH Server
 
-Mock SSH server written in Go that mocks some Ruckus SSH commands and responses.
+Mock SSH server written in Go that mocks a subset of Ruckus SSH commands and responses.
 Used for testing of [gabe565/pyruckus](https://github.com/gabe565/pyruckus) without a physical device.
 
 ## Quick Start
