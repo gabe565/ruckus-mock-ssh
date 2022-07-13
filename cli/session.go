@@ -19,12 +19,17 @@ type Session struct {
 
 func (s Session) Handle() {
 	log.Println("begin session")
-	defer log.Println("end session")
 
 	term := s.terminal
 
+	defer func() {
+		term.SetPrompt("")
+		_, _ = term.Write([]byte("Exit ruckus CLI.\n"))
+		log.Println("end session")
+	}()
+
 	// Login prompt
-	term.SetPrompt("Please login: ")
+	term.SetPrompt("\nPlease login: ")
 	username, err := term.ReadLine()
 	if err != nil {
 		return
