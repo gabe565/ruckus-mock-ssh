@@ -15,6 +15,8 @@ FROM alpine
 LABEL org.opencontainers.image.source="https://github.com/gabe565/ruckus-mock-ssh"
 WORKDIR /app
 
+RUN apk add --no-cache tzdata
+
 COPY --from=go-builder /app/ruckus-mock-ssh .
 
 CMD ["./ruckus-mock-ssh", "--address=:2222"]
