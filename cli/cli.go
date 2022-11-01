@@ -2,7 +2,7 @@ package cli
 
 import (
 	"github.com/gliderlabs/ssh"
-	"golang.org/x/crypto/ssh/terminal"
+	"golang.org/x/term"
 )
 
 func New(username, password string) Cli {
@@ -22,7 +22,7 @@ func (cli Cli) NewSession(sshSession ssh.Session) {
 	session := Session{
 		cli:     cli,
 		session: sshSession,
-		terminal: terminal.NewTerminal(
+		terminal: term.NewTerminal(
 			LineToCarriage{sshSession},
 			"",
 		),

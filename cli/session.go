@@ -3,7 +3,7 @@ package cli
 import (
 	"github.com/gabe565/ruckus-mock-ssh/cli/cursor"
 	"github.com/gliderlabs/ssh"
-	"golang.org/x/crypto/ssh/terminal"
+	"golang.org/x/term"
 	"io/fs"
 	"log"
 	"path/filepath"
@@ -13,31 +13,31 @@ import (
 type Session struct {
 	cli                Cli
 	session            ssh.Session
-	terminal           *terminal.Terminal
+	terminal           *term.Terminal
 	showingCompletions bool
 }
 
 func (s Session) Handle() {
 	log.Println("begin session")
 
-	term := s.terminal
+	t := s.terminal
 
 	defer func() {
-		term.SetPrompt("")
-		_, _ = term.Write([]byte("Exit ruckus CLI.\n"))
+		t.SetPrompt("")
+		_, _ = t.Write([]byte("Exit ruckus CLI.\n"))
 		log.Println("end session")
 	}()
 
 	// Login prompt
-	term.SetPrompt("\nPlease login: ")
-	username, err := term.ReadLine()
+	t.SetPrompt("\nPlease login: ")
+	username, err := t.ReadLine()
 	if err != nil {
 		return
 	}
 	log.Println("username: " + username)
 
 	// Password prompt
-	password, err := term.ReadPassword("Password: ")
+	password, err := t.ReadPassword("Password: ")
 	if err != nil {
 		return
 	}
@@ -45,7 +45,7 @@ func (s Session) Handle() {
 
 	if !s.cli.AuthPair.Validate(username, password) {
 		log.Println("auth failure")
-		if _, err := term.Write([]byte("Login incorrect\n")); err != nil {
+		if _, err := t.Write([]byte("Login incorrect\n")); err != nil {
 			log.Println(err)
 			return
 		}
@@ -55,24 +55,24 @@ func (s Session) Handle() {
 	log.Println("auth success")
 
 	// Banner
-	_, err = term.Write([]byte("Welcome to Ruckus Unleashed Command Line Interface\n"))
+	_, err = t.Write([]byte("Welcome to Ruckus Unleashed Command Line Interface\n"))
 	if err != nil {
 		log.Println(err)
 		return
 	}
 
-	term.AutoCompleteCallback = s.AutoComplete
+	t.AutoCompleteCallback = s.AutoComplete
 
 	var superuser bool
 	for {
 		// Change prompt when superuser
 		if superuser {
-			term.SetPrompt("ruckus# ")
+			t.SetPrompt("ruckus# ")
 		} else {
-			term.SetPrompt("ruckus> ")
+			t.SetPrompt("ruckus> ")
 		}
 
-		line, err := term.ReadLine()
+		line, err := t.ReadLine()
 		if err != nil {
 			log.Println(err)
 			return
@@ -106,7 +106,7 @@ func (s Session) Handle() {
 				continue
 			}
 
-			if _, err := term.Write(response); err != nil {
+			if _, err := t.Write(response); err != nil {
 				log.Println(err)
 				return
 			}
