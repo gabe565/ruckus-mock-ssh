@@ -4,6 +4,7 @@ import (
 	"github.com/gabe565/ruckus-mock-ssh/cli/cursor"
 	"github.com/gliderlabs/ssh"
 	"golang.org/x/term"
+	"io"
 	"io/fs"
 	"log"
 	"path/filepath"
@@ -96,22 +97,33 @@ func (s Session) Handle() {
 		}
 
 		if responseFile != "" {
-			responseFile = filepath.Join(
-				"responses",
-				filepath.Join("/", responseFile+".txt"),
-			)
-			response, err := fs.ReadFile(responses, responseFile)
-			if err != nil {
+			if err := s.SendResponse(responseFile); err != nil {
 				log.Println(err)
 				continue
 			}
-
-			if _, err := t.Write(response); err != nil {
-				log.Println(err)
-				return
-			}
 		}
 	}
+}
+
+func (s *Session) SendResponse(path string) error {
+	path = filepath.Join(
+		"responses",
+		filepath.Join("/", path+".txt"),
+	)
+
+	f, err := responses.Open(path)
+	if err != nil {
+		return err
+	}
+	defer func(f fs.File) {
+		_ = f.Close()
+	}(f)
+
+	if _, err := io.Copy(s.terminal, f); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (s *Session) AutoComplete(line string, pos int, key rune) (newLine string, newPos int, ok bool) {
