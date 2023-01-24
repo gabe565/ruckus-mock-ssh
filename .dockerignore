@@ -5,3 +5,4 @@
 .idea
 Dockerfile
 README.md
+docker-compose.yml
