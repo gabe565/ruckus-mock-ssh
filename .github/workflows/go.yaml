@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: docker meta
+      - name: Docker meta
         id: meta
         uses: docker/metadata-action@v4
         with:
