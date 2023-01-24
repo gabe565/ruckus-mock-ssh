@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-env:
-  GO_VERSION: 1.19
-
 jobs:
   build:
     name: Build Container
