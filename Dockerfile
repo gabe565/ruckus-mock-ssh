@@ -16,7 +16,7 @@ RUN --mount=type=cache,target=/root/.cache \
         'linux/arm64' | 'linux/arm64/v8') export GOARCH=arm64 ;; \
         *) echo "Unsupported target: $TARGETPLATFORM" && exit 1 ;; \
     esac \
-    && go build -ldflags='-w -s'
+    && go build -ldflags='-w -s' -trimpath
 
 
 FROM alpine
