@@ -1,14 +1,15 @@
 package cli
 
 import (
-	"github.com/gabe565/ruckus-mock-ssh/cli/cursor"
-	"github.com/gliderlabs/ssh"
-	"golang.org/x/term"
 	"io"
 	"io/fs"
 	"log"
 	"path/filepath"
 	"strings"
+
+	"github.com/gabe565/ruckus-mock-ssh/cli/cursor"
+	"github.com/gliderlabs/ssh"
+	"golang.org/x/term"
 )
 
 type Session struct {

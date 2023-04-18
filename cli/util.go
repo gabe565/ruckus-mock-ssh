@@ -1,8 +1,8 @@
 package cli
 
 func longestCommonPrefix(strs []string) string {
-	var longestPrefix = ""
-	var endPrefix = false
+	longestPrefix := ""
+	endPrefix := false
 
 	if len(strs) > 0 {
 		first := strs[0]

@@ -1,10 +1,11 @@
 package main
 
 import (
+	"log"
+
 	"github.com/gabe565/ruckus-mock-ssh/cli"
 	"github.com/gliderlabs/ssh"
 	flag "github.com/spf13/pflag"
-	"log"
 )
 
 func main() {
