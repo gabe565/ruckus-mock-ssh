@@ -5,7 +5,7 @@ go 1.21.6
 require (
 	github.com/gliderlabs/ssh v0.3.6
 	github.com/spf13/pflag v1.0.5
-	golang.org/x/term v0.16.0
+	golang.org/x/term v0.17.0
 )
 
 require (
