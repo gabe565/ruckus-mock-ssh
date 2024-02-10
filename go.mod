@@ -1,6 +1,6 @@
 module github.com/gabe565/ruckus-mock-ssh
 
-go 1.21.6
+go 1.22.0
 
 require (
 	github.com/gliderlabs/ssh v0.3.6
